@@ -51,7 +51,11 @@
                                     <constraint firstAttribute="height" constant="30" id="0Oq-xj-2xw"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Camera" id="AS2-79-Esg" userLabel="Camera"/>
+                                    <barButtonItem title="Camera" id="AS2-79-Esg" userLabel="Camera">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="a8f-XK-zOn"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Albums" width="110.5" id="8fP-ZA-tSS" userLabel="Albums">
                                         <connections>
                                             <action selector="PickAnImageFromAlbum:" destination="BYZ-38-t0r" id="O7L-oI-grk"/>
@@ -78,6 +82,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="mNY-xA-jpb" id="L9D-Ns-ZHT"/>
+                        <outlet property="cameraButton" destination="AS2-79-Esg" id="vFl-rc-ONb"/>
                         <outlet property="imageViewPicker" destination="rep-T0-h3V" id="enn-mh-geq"/>
                         <outlet property="topTextField" destination="llp-QY-V1S" id="orw-NT-cw2"/>
                     </connections>

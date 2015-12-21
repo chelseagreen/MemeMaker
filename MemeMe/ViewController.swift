@@ -17,6 +17,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageViewPicker: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         
@@ -44,8 +45,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        // TODO: enable / disable camera button based on if the camera exists
-        // cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        // Camera button only enabled if camera exists on device
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     @IBAction func PickAnImageFromAlbum(sender: AnyObject) {
