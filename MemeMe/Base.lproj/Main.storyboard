@@ -43,8 +43,16 @@
                                     <constraint firstAttribute="height" constant="30" id="WIl-19-JYJ"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Share" id="1kL-yA-7jQ"/>
-                                    <barButtonItem title="Cancel" id="Kuh-r9-eD1" userLabel="Cancel"/>
+                                    <barButtonItem title="Share" id="1kL-yA-7jQ">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="Re5-b0-u5M"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Cancel" id="Kuh-r9-eD1" userLabel="Cancel">
+                                        <connections>
+                                            <action selector="cancelMeme:" destination="BYZ-38-t0r" id="FQr-L8-xmK"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rep-T0-h3V">
@@ -102,7 +110,7 @@
                         <outlet property="cameraButton" destination="AS2-79-Esg" id="vFl-rc-ONb"/>
                         <outlet property="imageViewPicker" destination="rep-T0-h3V" id="enn-mh-geq"/>
                         <outlet property="navBar" destination="ZM5-TD-Q2g" id="gCv-gF-fHy"/>
-                        <outlet property="shareButton" destination="1kL-yA-7jQ" id="PHG-lz-tqj"/>
+                        <outlet property="shareButton" destination="1kL-yA-7jQ" id="Xnx-UD-bLp"/>
                         <outlet property="toolBar" destination="OHM-Rh-djg" id="FVD-0e-eRm"/>
                         <outlet property="topTextField" destination="llp-QY-V1S" id="orw-NT-cw2"/>
                     </connections>
