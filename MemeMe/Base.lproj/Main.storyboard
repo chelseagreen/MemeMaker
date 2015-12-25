@@ -84,9 +84,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OHM-Rh-djg" secondAttribute="bottom" id="0U4-b9-67N" userLabel="ToolbarBottom Layout Guide.top = Toolbar.bottom + 10"/>
-                            <constraint firstItem="rep-T0-h3V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-50" id="2N6-pa-knC" userLabel="ImageViewPicker.leading = leadingMargin - 20"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rep-T0-h3V" secondAttribute="bottom" id="Aw5-28-x81"/>
+                            <constraint firstItem="OHM-Rh-djg" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="0U4-b9-67N" userLabel="ToolbarBottom Layout Guide.top = Toolbar.bottom + 10"/>
+                            <constraint firstItem="rep-T0-h3V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-70" id="2N6-pa-knC" userLabel="ImageViewPicker.leading = leadingMargin - 20"/>
+                            <constraint firstItem="rep-T0-h3V" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="wfy-db-euE" secondAttribute="top" constant="-30" id="Aw5-28-x81"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OHM-Rh-djg" secondAttribute="trailing" id="EKa-AU-WRG" userLabel="ToolbartrailingMargin = Toolbar.trailing"/>
                             <constraint firstItem="mNY-xA-jpb" firstAttribute="leading" secondItem="rep-T0-h3V" secondAttribute="leading" constant="-10" id="GwS-gx-W9N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZM5-TD-Q2g" secondAttribute="trailing" id="Jak-2g-ED2"/>
