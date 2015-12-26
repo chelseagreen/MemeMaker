@@ -105,7 +105,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         if textField.text == "BOTTOM" {
             textField.text = ""
         }
-    
         
     }
     
@@ -190,7 +189,38 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     func saveMeme(memedImage: UIImage) {
         // New meme
-        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imageViewPicker.image!, memedImage: memedImage)
+        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imageViewPicker.image!, memedImage: generateMemedImage())
+        
+        // Add to memes array on Application Delegate 
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
