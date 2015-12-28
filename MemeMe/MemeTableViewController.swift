@@ -10,9 +10,6 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
     
-    
-    @IBOutlet weak var flowlayout: UICollectionViewFlowLayout!
-    
     var memes: [Meme]!
 
     override func viewDidLoad() {
@@ -23,37 +20,57 @@ class MemeTableViewController: UITableViewController {
 
         // the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-            
-        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        memes = applicationDelegate.memes
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        memes = MemeManager.sharedInstance.memes
+        // Refresh the table list
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return memes.count 
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell") as! TableViewCell
 
-        // Configure the cell...
-
+        let meme = memes[indexPath.item]
+        let imageView = UIImageView(image: meme.image)
+        cell.backgroundView = imageView
+        
         return cell
     }
-    */
+    
+    
+    // MARK: - Table view delegate 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath
+        indexPath: NSIndexPath) {
+            
+            //Grab the DetailVC from Storyboard
+            let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")
+            let detailVC = object as! MemeDetailViewController
+            
+            //Populate view controller with data from the selected item
+            //detailVC.meme = Meme.[indexPath.row]
+            
+            //Present the view controller using navigation
+            self.navigationController!.pushViewController(detailVC, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
