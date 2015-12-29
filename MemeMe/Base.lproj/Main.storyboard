@@ -29,18 +29,43 @@
         <scene sceneID="nfm-OU-V3h">
             <objects>
                 <tableViewController id="Sr9-cd-h07" userLabel="Table View Controller" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YN8-jv-ijN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="156" sectionHeaderHeight="28" sectionFooterHeight="28" id="YN8-jv-ijN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="ufD-tA-vxl" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="156" id="ufD-tA-vxl" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="156"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ufD-tA-vxl" id="gdR-ZP-hTX">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="155.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="TableImageView" translatesAutoresizingMaskIntoConstraints="NO" id="utL-yF-GWI" userLabel="TableImageView">
+                                            <rect key="frame" x="15" y="8" width="223" height="139.5"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="TableTextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-M9-S0a" userLabel="TableTextView">
+                                            <rect key="frame" x="275" y="0.0" width="299" height="142.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="utL-yF-GWI" firstAttribute="top" secondItem="gdR-ZP-hTX" secondAttribute="topMargin" id="1cc-61-X4w"/>
+                                        <constraint firstItem="qzI-M9-S0a" firstAttribute="top" secondItem="gdR-ZP-hTX" secondAttribute="topMargin" constant="-8" id="A2g-ny-0Lz"/>
+                                        <constraint firstItem="qzI-M9-S0a" firstAttribute="trailing" secondItem="gdR-ZP-hTX" secondAttribute="trailingMargin" id="H0U-wp-chK"/>
+                                        <constraint firstItem="utL-yF-GWI" firstAttribute="bottom" secondItem="gdR-ZP-hTX" secondAttribute="bottomMargin" id="Lzl-PI-0Zb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qzI-M9-S0a" secondAttribute="bottom" constant="5" id="d5b-6K-yi3"/>
+                                        <constraint firstItem="qzI-M9-S0a" firstAttribute="leading" secondItem="utL-yF-GWI" secondAttribute="trailing" constant="10" id="eKg-6m-Blc"/>
+                                        <constraint firstItem="utL-yF-GWI" firstAttribute="leading" secondItem="gdR-ZP-hTX" secondAttribute="leadingMargin" constant="7" id="z5e-z2-Diw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="memeImageView" destination="utL-yF-GWI" id="uO1-oA-Mj3"/>
+                                    <outlet property="memeLabel" destination="qzI-M9-S0a" id="5oa-NW-Aqu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,7 +74,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="iP3-FV-lRr" userLabel="Sent Memes"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="iP3-FV-lRr" userLabel="Sent Memes">
+                        <barButtonItem key="leftBarButtonItem" title="New" id="iwj-mG-YKJ">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="T0E-Rw-gdp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acy-2A-x4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,7 +91,7 @@
         <scene sceneID="A2p-NE-fPO">
             <objects>
                 <navigationController id="7Og-eh-ALn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="qKE-TB-3sv" userLabel="Table"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="Table" id="qKE-TB-3sv" userLabel="Table"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JKo-mk-Gt3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -77,7 +108,7 @@
         <scene sceneID="TDf-iA-Oos">
             <objects>
                 <navigationController id="764-LY-uRZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="hQl-y3-1Ks" userLabel="Collection"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="Collection" id="hQl-y3-1Ks" userLabel="Collection"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KDh-7x-0SB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -98,17 +129,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BdB-NK-5U4">
-                            <size key="itemSize" width="70" height="70"/>
+                            <size key="itemSize" width="155" height="155"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memeImageView" id="BZ5-bT-GZN" customClass="CollectionViewCell" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="70" height="70"/>
+                                <rect key="frame" x="0.0" y="64" width="155" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d7U-iY-YDg">
@@ -116,6 +147,9 @@
                                             <variation key="widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="-165" y="-265" width="400" height="600"/>
                                             </variation>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYW-bi-UFT">
+                                            <rect key="frame" x="-10" y="0.0" width="240" height="147"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -268,6 +302,11 @@
     </scenes>
     <resources>
         <image name="Camera" width="25" height="19"/>
+        <image name="Collection" width="30" height="30"/>
         <image name="Share" width="19" height="26"/>
+        <image name="Table" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="T0E-Rw-gdp"/>
+    </inferredMetricsTieBreakers>
 </document>

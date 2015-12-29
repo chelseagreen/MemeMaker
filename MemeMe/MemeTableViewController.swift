@@ -47,12 +47,24 @@ class MemeTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell") as! TableViewCell
-
-        let meme = memes[indexPath.item]
-        let imageView = UIImageView(image: meme.image)
-        cell.backgroundView = imageView
+        
+        let meme = memes[indexPath.row]
+        
+        cell.memeImageView.image = meme.memedImage
+        cell.memeLabel.text = buildMemeTextSummary(meme)
         
         return cell
+    }
+    
+    // Creates a string to display as the meme summary in a cell
+    func buildMemeTextSummary(meme: Meme) -> String {
+        let topCount = meme.top.characters.count
+        let bottomCount = meme.bottom.characters.count
+        
+        let topSubstring = meme.top
+        let bottomSubstring = meme.bottom
+        
+        return "\(topSubstring). \(bottomSubstring)"
     }
     
     
