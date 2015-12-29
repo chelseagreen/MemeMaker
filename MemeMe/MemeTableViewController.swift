@@ -21,8 +21,10 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        // Refresh local memes instance
+        
+        // Meme instance
         memes = MemeManager.sharedInstance.memes
+        
         // Refresh the table list
         tableView.reloadData()
     }
@@ -32,7 +34,7 @@ class MemeTableViewController: UITableViewController {
 
     }
 
-    // MARK: - Table view data source
+    // Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count 
@@ -49,7 +51,7 @@ class MemeTableViewController: UITableViewController {
         return cell
     }
     
-    // Creates a string to display as the meme summary in a cell
+    // Creates string to display as the meme summary in a cell
     func buildMemeTextSummary(meme: Meme) -> String {
         let topCount = meme.top.characters.count
         let bottomCount = meme.bottom.characters.count
@@ -60,29 +62,12 @@ class MemeTableViewController: UITableViewController {
         return "\(topSubstring). \(bottomSubstring)"
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        switch editingStyle {
-        case .Delete:
-            removeMemeAtIndexPath(indexPath)
-        default:
-            return
-        }
-    }
-    
-    func removeMemeAtIndexPath(indexPath: NSIndexPath) {
-        // remove the deleted item from the model
-        MemeManager.sharedInstance.deleteMemeAtIndex(indexPath.row)
-        memes = MemeManager.sharedInstance.memes
-        // remove the deleted item from the `UITableView`
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    }
-    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
 
     
-    // MARK: - Table view delegate 
+    // Table view delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -96,5 +81,4 @@ class MemeTableViewController: UITableViewController {
         self.navigationController?.pushViewController(destinationController, animated: true)
     }
 
-    
 }

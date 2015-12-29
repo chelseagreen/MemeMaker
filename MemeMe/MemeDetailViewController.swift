@@ -12,7 +12,6 @@ class MemeDetailViewController: UIViewController {
         
     // Image view that will contain the memed image
     
-    
     @IBOutlet weak var imageView: UIImageView!
     
     var memeIndex: Int!

@@ -31,18 +31,15 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         // Refresh the local memes reference
         memes = MemeManager.sharedInstance.memes
-        // Refresh the collection
+        
+        // Refresh collection
         collectionView?.reloadData()
     }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
     
-    // MARK: UICollectionViewDataSource
+    // UICollectionViewDataSource
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count

@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-
-// Class tha represents a meme with a image, top and bottom texts
+// Struct represents a meme with a image and text fields 
 struct Meme {
     
     // Meme elements
@@ -18,11 +17,10 @@ struct Meme {
     var bottom: String
     var image: UIImage
     
-    // The actual meme image. It was built using the meme elemets
+    // The actual meme image.
     var memedImage: UIImage
     
 }
-
 
 // Class used to create a shared meme array
 class MemeManager: NSObject {
