@@ -6,35 +6,42 @@
 //  Copyright © 2015 Chelsea Green. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class MemeCollectionViewController: UICollectionViewController {
+    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let space: CGFloat = 3.0
+        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
 
-        // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // Refresh the local memes reference
         memes = MemeManager.sharedInstance.memes
         // Refresh the collection
+        collectionView?.reloadData()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,17 +51,27 @@ class MemeCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
+        
         let meme = memes[indexPath.item]
-        let imageView = UIImageView(image: meme.image)
-        cell.backgroundView = imageView
+        
+        cell.memeImageView.image = meme.memedImage
         
         return cell
+        
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
-    {
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailController, animated: true)
+    // UICollectionView Delegate 
+    
+    override func collectionView(tableView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let meme = memes[indexPath.item]
+        
+        let destinationController =
+        storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        destinationController.meme = meme
+        destinationController.memeIndex = indexPath.item
+        
+        self.navigationController?.pushViewController(destinationController, animated: true)
     }
+    
 }
