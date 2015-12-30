@@ -31,7 +31,6 @@ class MemeTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
     }
 
     // Table view data source
@@ -65,7 +64,6 @@ class MemeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-
     
     // Table view delegate
     

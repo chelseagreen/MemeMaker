@@ -12,6 +12,6 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var memeImageView: UIImageView!
 
-    @IBOutlet weak var memeLabel: UITextView!
-    
+    @IBOutlet weak var memeLabel: UILabel!
+
 }

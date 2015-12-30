@@ -52,14 +52,12 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         subscribeToKeyboardNotifications()
-
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         unsubscribeFromKeyboardNotifications()
-       
     }
     
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
@@ -105,7 +103,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         if textField.text == "BOTTOM" {
             textField.text = ""
         }
-        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -192,9 +189,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         // Add the saved meme to the shared model
         MemeManager.sharedInstance.appendMeme(meme)
     }
-
 }
-
 
 
 

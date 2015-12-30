@@ -24,9 +24,9 @@ class MemeCollectionViewController: UICollectionViewController {
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
 
-        self.clearsSelectionOnViewWillAppear = false
+        clearsSelectionOnViewWillAppear = false
         
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        navigationItem.rightBarButtonItem = editButtonItem()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,7 +68,7 @@ class MemeCollectionViewController: UICollectionViewController {
         destinationController.meme = meme
         destinationController.memeIndex = indexPath.item
         
-        self.navigationController?.pushViewController(destinationController, animated: true)
+        navigationController?.pushViewController(destinationController, animated: true)
     }
     
 }
