@@ -15,12 +15,13 @@ class MemeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.clearsSelectionOnViewWillAppear = false
+        clearsSelectionOnViewWillAppear = false
 
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Meme instance
         memes = MemeManager.sharedInstance.memes
@@ -76,7 +77,7 @@ class MemeTableViewController: UITableViewController {
         destinationController.meme = meme
         destinationController.memeIndex = indexPath.row
         
-        self.navigationController?.pushViewController(destinationController, animated: true)
+        navigationController?.pushViewController(destinationController, animated: true)
     }
 
 }

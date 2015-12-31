@@ -192,7 +192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUQ-WP-Keo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUQ-WP-Keo">
                                 <rect key="frame" x="5" y="72" width="590" height="357"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DUQ-WP-Keo" secondAttribute="height" multiplier="15:8" id="kJg-V4-ldg"/>
@@ -209,7 +209,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8x-3u-9gV">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8x-3u-9gV">
                                 <rect key="frame" x="0.0" y="486" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="J90-tG-edo"/>
